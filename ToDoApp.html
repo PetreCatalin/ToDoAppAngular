@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html ng-app="toDoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoApp</title>
+    <link rel="stylesheet" type="text/css" href="ToDoApp.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div ng-controller="ToDoController">
+
+        <div class="page-header">
+            <h1 id="title1"> {{name}}'s To Do List </h1>
+        </div>
+
+        <div class="panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Done</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in listItems | filter: {done:false} | orderBy: 'action' " class="danger">
+                    <td> {{item.action}}</td>
+                    <td><input type="checkbox" ng-model="item.done"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+
+             <div>
+                <input class="form-control" ng-model="actionText"/>
+                 <div class="wrapper">
+                    <button id="addItemButton" class="btn btn-success" ng-click="addNewItem(actionText)">Add new Item</button>
+                 </div>
+             </div>
+
+        </div>
+
+        <div class="page-header">
+            <h1 id="title2"> {{name}}'s Done Items </h1>
+        </div>
+
+        <div class="panel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in listItems | filter: {done:true} | orderBy: 'action' " class="success">
+                    <td> {{item.action}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="ToDoApp.js"></script>
+</body>
+
+</html>

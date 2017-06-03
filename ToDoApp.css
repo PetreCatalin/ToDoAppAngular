@@ -1,0 +1,23 @@
+#title1,#title2 {
+    text-align:center;
+    color:blue;
+    font-style:oblique;
+}
+
+#title2 {
+    margin-top:7vw;
+}
+
+table th,tr {
+    text-align:center;
+    font-style:oblique;
+}
+
+.wrapper {
+     text-align: center;
+ }
+
+#addItemButton {
+    position: absolute;
+    left: 45%;
+}
